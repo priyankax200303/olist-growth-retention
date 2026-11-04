@@ -1,0 +1,9 @@
+pandas
+numpy
+scipy
+statsmodels
+matplotlib
+psycopg2-binary
+nbformat
+nbclient
+ipykernel
