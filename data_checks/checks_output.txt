@@ -1,0 +1,130 @@
+Output format is aligned.
+== row counts
+       t        |  count  
+----------------+---------
+ translation    |      71
+ sellers        |    3095
+ products       |   32951
+ order_payments |  103886
+ customers      |   99441
+ orders         |   99441
+ order_items    |  112650
+ order_reviews  |   99224
+ geolocation    | 1000163
+(9 rows)
+
+== primary key uniqueness (dupes)
+              k               | dupes 
+------------------------------+-------
+ orders.order_id              |     0
+ customers.customer_id        |     0
+ products.product_id          |     0
+ sellers.seller_id            |     0
+ reviews.review_id            |   814
+ reviews.(review_id,order_id) |     0
+ reviews.order_id             |   551
+ items.(order_id,item)        |     0
+ payments.(order,seq)         |     0
+(9 rows)
+
+== orphans
+            c            | count 
+-------------------------+-------
+ products no category    |   610
+ categories untranslated |     2
+ items w/o seller        |     0
+ items w/o product       |     0
+ payments w/o order      |     0
+ orders w/o customer     |     0
+ reviews w/o order       |     0
+ orders w/o items        |   775
+ orders w/o payment      |     1
+ items w/o order         |     0
+ orders w/o review       |   768
+(11 rows)
+
+== status
+ order_status | count | delivered_ts 
+--------------+-------+--------------
+ delivered    | 96478 |        96470
+ shipped      |  1107 |            0
+ canceled     |   625 |            6
+ unavailable  |   609 |            0
+ invoiced     |   314 |            0
+ processing   |   301 |            0
+ created      |     5 |            0
+ approved     |     2 |            0
+(8 rows)
+
+== customer ids
+ customer_ids | unique_ids 
+--------------+------------
+        99441 |      96096
+(1 row)
+
+== date logic
+         min         |         max         
+---------------------+---------------------
+ 2016-09-04 21:15:19 | 2018-10-17 17:30:18
+(1 row)
+
+ del_before_purchase | appr_before_purchase | carrier_before_appr | del_before_carrier | delivered_no_ts | notdelivered_with_ts 
+---------------------+----------------------+---------------------+--------------------+-----------------+----------------------
+                   0 |                    0 |                1359 |                 23 |               8 |                    6
+(1 row)
+
+== monthly orders
+    m    | count 
+---------+-------
+ 2016-09 |     4
+ 2016-10 |   324
+ 2016-12 |     1
+ 2017-01 |   800
+ 2017-02 |  1780
+ 2017-03 |  2682
+ 2017-04 |  2404
+ 2017-05 |  3700
+ 2017-06 |  3245
+ 2017-07 |  4026
+ 2017-08 |  4331
+ 2017-09 |  4285
+ 2017-10 |  4631
+ 2017-11 |  7544
+ 2017-12 |  5673
+ 2018-01 |  7269
+ 2018-02 |  6728
+ 2018-03 |  7211
+ 2018-04 |  6939
+ 2018-05 |  6873
+ 2018-06 |  6167
+ 2018-07 |  6292
+ 2018-08 |  6512
+ 2018-09 |    16
+ 2018-10 |     4
+(25 rows)
+
+== payment vs items reconciliation
+   n   | match_5c | off_gt_1 | items_total |  pay_total  | diff_large 
+-------+----------+----------+-------------+-------------+------------
+ 98665 |    98342 |      312 | 15848099.68 | 15846280.17 |   -1822.71
+(1 row)
+
+ zero_or_null_payment 
+----------------------
+                    9
+(1 row)
+
+ payment_type | count 
+--------------+-------
+ not_defined  |     3
+ boleto       | 19784
+ debit_card   |  1529
+ voucher      |  5775
+ credit_card  | 76795
+(5 rows)
+
+ bad_price | bad_freight | zero_freight |  maxp   |  maxf  
+-----------+-------------+--------------+---------+--------
+         0 |           0 |          383 | 6735.00 | 409.68
+(1 row)
+
