@@ -1,0 +1,6 @@
+scenario,lever,repeat_lift_pts,added_orders,added_gmv,pct_of_t12_gmv
+No late orders: central estimate,Delivery,0.33,19,2398,0.02
+No late orders: low end of interval,Delivery,1.02,58,7375,0.07
+"Retention lift of 0.25 pt, 40% reach (assumed)",Retention,0.25,73,9225,0.09
+"Retention lift of 0.5 pt, 40% reach (assumed)",Retention,0.5,146,18449,0.18
+"Retention lift of 1 pt, 40% reach (assumed)",Retention,1.0,291,36898,0.36

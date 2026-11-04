@@ -1,0 +1,7 @@
+segment,customers,pct_customers,gmv,pct_gmv,avg_gmv,avg_recency_days
+1 Loyal high value,1598,1.7,523315.03,3.9,327.48,186
+2 Loyal standard,443,0.5,32844.78,0.2,74.14,195
+"3 Recent high value, one order",14791,15.7,3969574.91,29.5,268.38,87
+"4 Recent standard, one order",21929,23.2,1222381.73,9.1,55.74,86
+5 Lapsed high value,21405,22.7,5770185.07,42.9,269.57,332
+6 Lapsed standard,34320,36.3,1917454.53,14.3,55.87,333
